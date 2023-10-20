@@ -1,15 +1,7 @@
 
 
-const home = () =>{
+import React, { useState } from 'react';
 
-    return(
-        <div className="h-full w-full">
-       
-
-        </div>
-    )
-
-
+function home() {
 }
-
 export default home;
