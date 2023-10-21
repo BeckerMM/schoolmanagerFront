@@ -3,11 +3,13 @@ export default () => {
   return (
     <div className="h-[92%] flex justify-center items-center">
 
-      <div className="w-[50%] h-[80%] flex items-center flex-col border border-thin ">
+      <div className="w-[50%] h-[80%] flex items-center flex-col border border-  rounded-md gap-2">
+        <div className="h-[12%] flex justify-center items-center">
+          <h1 className="text-2xl w-full flex justify-center">Register</h1>
 
-        <h1 className="text-2xl w-full">Register</h1>
+        </div>
         <div className="w-full h-full flex items-center flex-col">
-          
+
           <div className="divRegister">
             <p>Username</p>
             <input className=" w-full px-3 py-2 border border-gray-400 rounded-sm focus:outline-none focus:ring focus:border-blue-300" type="text" />
@@ -20,7 +22,7 @@ export default () => {
 
           <div className="divRegister">
             <p>Password</p>
-            <input  className=" w-full px-3 py-2 border border-gray-400 rounded-sm focus:outline-none focus:ring focus:border-blue-300"type="text" />
+            <input className=" w-full px-3 py-2 border border-gray-400 rounded-sm focus:outline-none focus:ring focus:border-blue-300" type="text" />
           </div>
 
           <div className="divRegister">
