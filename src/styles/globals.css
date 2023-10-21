@@ -21,7 +21,7 @@ width: 100%;
 }
 
 .buttonHeader{
-  @apply h-1/3 rounded-md hover:bg-gray-400 hover:cursor-pointer flex items-center w-[8%]  justify-center;
+  @apply rounded-md hover:text-[#3686ff] hover:cursor-pointer flex items-center w-[8%]  justify-center text-[#616161] font-semibold	 divide-y-4;
 }
 
 .divRegister{

@@ -1,11 +1,11 @@
 import { useRouter } from "next/navigation"
-
+    
 
 export default () => {
 
     const router= useRouter();
     return (
-        <div className="h-[8%] w-full bg-gray-500 flex justify-around items-center">
+        <div className="h-[8%] w-full bg-[#f5f5f5] flex justify-around items-center border border-thin">
             <h1 className="buttonHeader"
                onClick={() => {router.push({
                      pathname: "/logged/register",
