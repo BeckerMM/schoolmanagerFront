@@ -18,24 +18,10 @@ const Home = (props) => {
   }, []);
 
 
-<<<<<<< HEAD
-import React, { useState } from 'react';
-
-function home() {
-}
-export default home;
-=======
-  // Este useEffect irá retornar quando o estado de users for alterado.
-  useEffect(() => {
-    console.log(users);
-  }, [users]);
-
   return (
-    <div className="h-full w-full">
-        
+    <div>
+
     </div>
   );
-};
-
+  }
 export default Home;
->>>>>>> c3ac49326defc94e61da3f82da538c73f84110d2

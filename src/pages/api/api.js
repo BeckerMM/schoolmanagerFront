@@ -3,34 +3,43 @@ import axios from 'axios';
 const apiEndpoint = 'http://localhost:8082';
 
 class api {
- get = async () => {
+  get = async () => {
     try {
       const response = await axios.get(apiEndpoint + "/user");
-      const data = response.data; // Get the response data
-      
-      return data; // Return the data
+      const data = response.data; // Pega a resposta da requisição
+      return data; // retorna a resposta da requisição 
     } catch (error) {
       console.error('Error fetching data:', error);
-      throw error; // Optionally, rethrow the error so it can be caught by the caller
+      throw error; 
     }
   };
-  
+
+  getById = async (id) => {
+    try {
+      const response = await axios.get(apiEndpoint + "/user/" + id);
+      const data = response.data; // Irá pegar a resposta da requisição
+      return data; // Irá retornar a resposta da requisição
+    } catch (error) {
+      throw error;
+    }
+  };
+
   post = async (data) => {
     try {
-        const response = await axios.post(apiEndpoint + "/user", data);
-        const responseData = response.data; // Get the response data
-        return response.data;
+      const response = await axios.post(apiEndpoint + "/user", data);
+      return response.data;
     }
     catch (error) {
-        console.error('Error posting data:', error);
-        throw error; 
+      console.error('Error posting data:', error);
+      throw error;
     }
+
+  };
 }
-}
 
 
 
-export default new api() ;
+export default new api();
 
 
 //user_enum = PROFESSOR, STUDENT, SECRETARY

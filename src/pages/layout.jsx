@@ -1,13 +1,19 @@
 import Header from "@/components/header";
 
-export default function RootLayout({ children }) {
-   const isChildInLogged = children && children.type && children.type.name === 'logged'; // Verifique o nome do componente filho
+import { usePathname, useRouter } from "next/navigation";
 
+export default function RootLayout({ children }) {
+   const isChildInLogged =  children.type && children.type.name === 'Logged'; // Verifique o nome do componente filho
+
+   const pathname = usePathname();
+   
     return (
     
        <div className="h-full w-full">
-        <Header/>
-              {children}
+         
+          {pathname == "/login" ? null : <Header />}    
+         { children }
+         {console.log(pathname)}
        </div>
      
     )
