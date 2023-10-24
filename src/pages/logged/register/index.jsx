@@ -1,21 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../api/api';
-export default () => {
-  
-  const [user, setUser] = useState('')
 
-const changeUser = (event) =>{
-  setUser({
-    ...user, [event.target.name]: event.target.value
-  })
-  console.log(user)
-}
+import { usePathname } from 'next/navigation';
+export default () => {
+
+
+
+
+  const [user, setUser] = useState('')
+  const changeUser = (event) => {
+    setUser({
+      ...user, [event.target.name]: event.target.value
+    })
+    console.log(user)
+  }
 
   const post = async () => {
     if (user !== null) {
-      console.log(user)    
-        const response = api.post(user);
-        console.log(response)
+      console.log(user)
+      const response = api.post(user);
+      console.log(response)
     }
   }
 
@@ -66,7 +70,7 @@ const changeUser = (event) =>{
           </div>
           <div className="w-[76%] h-[10%]">
             <select name="userEnum" id="" className='w-1/4 h-1/2 border border-gray-400 rounded-sm focus:outline-none focus:ring focus:border-blue-300  cursor-pointer'
-              onChange={changeUser} 
+              onChange={changeUser}
               defaultValue={"PROFESSOR"}>
               <option value="PROFESSOR">PROFESSOR</option>
               <option value="SECRETARY">SECRETARY</option>

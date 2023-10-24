@@ -1,17 +1,22 @@
 export const APP_ROUTES = {
 
     private:{
-        REGISTER: '/logged/register',
-        TESTS: '/logged/tests',
-        GENERATE_NOTE: '/logged/generate-note',
-        REPORTS: '/logged/reports',
-        REGISTER_DISCIPLINE: '/logged/register-discipline',
-        HOME: '/logged/home'
+        REGISTER:{ 
+            name:'/logged/register'
+        },
+        TESTS:{ 
+            name:'/logged/tests'
+    },
+    
+        HOME: {
+            name:'/logged/home'
+    }
 
     },
     public:{
-        LOGIN: '/login',
-        ROOT: '/',
+        login:'/login',
+        root: '/'
+        
     }
    
 };

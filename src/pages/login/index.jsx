@@ -1,11 +1,23 @@
-import React, { useState } from 'react';
-
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
+import api from '../api/api';
 function login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    
+  const route = useRouter();
+
+  const [user, setUser] = useState('')
+  const changeUser = (event) => {
+    setUser({
+      ...user, [event.target.name]: event.target.value
+    })
+  }
+  const handleLogin = async () => {
+
+    const userlogin  = await api.getValidation(user);
+    if(userlogin!=null){
+      localStorage.setItem('user', JSON.stringify(userlogin));
+      route.push('/logged/home')
+    }
   };
 
   return (
@@ -14,14 +26,15 @@ function login() {
         <h2 className="text-2xl font-semibold text-center mb-4">Login</h2>
         <form>
           <div className="mb-4">
-            <label htmlFor="email" className="block text-gray-600">Email</label>
+            <label htmlFor="email" className="block text-gray-600">ID</label>
             <input
-              type="email"
-              id="email"
+              type="number"
+              id="id"
+              name='id'
               className="w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
-              placeholder="Seu email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Seu ID"
+             
+              onChange={changeUser}
             />
           </div>
           <div className="mb-4">
@@ -29,10 +42,11 @@ function login() {
             <input
               type="password"
               id="password"
+              name='password'
               className="w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
               placeholder="Sua senha"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+
+              onChange={changeUser}
             />
           </div>
           <button

@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+
 const apiEndpoint = 'http://localhost:8082';
 
 class api {
@@ -10,15 +11,18 @@ class api {
       return data; // retorna a resposta da requisição 
     } catch (error) {
       console.error('Error fetching data:', error);
-      throw error; 
+      throw error;
     }
   };
 
-  getById = async (id) => {
+  getValidation = async (user) => {
     try {
-      const response = await axios.get(apiEndpoint + "/user/" + id);
-      const data = response.data; // Irá pegar a resposta da requisição
-      return data; // Irá retornar a resposta da requisição
+      console.log(user);
+      const response = await axios.post(apiEndpoint + "/user/login", user);
+      console.log(user);
+
+      return response.data; // Irá pegar a resposta da requisição
+
     } catch (error) {
       throw error;
     }
