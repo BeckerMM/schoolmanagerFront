@@ -1,25 +1,28 @@
 import { useRouter } from "next/router";
 import { APP_ROUTES } from "@/constants/app-routes";
-import { checkUserAuthenticate } from "@/functions/check-user-Authenticate";
-import { useEffect } from "react";
+import { getStaticProps } from "@/functions/check-user-Authenticate";
+import { useEffect, useState } from "react";
+
 const PrivateRoute = ({ children }) => {
 
     const route = useRouter();
-
-    const isLogged = checkUserAuthenticate();
-
-    
+    const [user, setUser] = useState(false)
     useEffect(() => {
-        if(!isLogged){
-            route.push(APP_ROUTES.public.login)
-        }
-    }, [isLogged,route])
+        async function checkUser() {
 
-    console.log(isLogged)
-    return(
+            let autenticate = await getStaticProps();
+            setUser(autenticate);
+            if (!autenticate) {
+                route.push(APP_ROUTES.public.login);
+            }
+        }
+        checkUser();
+    }, []);
+
+    return (
         <>
-        {!isLogged && null}
-        {isLogged && children}
+            {getStaticProps() == null && null}
+            {getStaticProps() && children}
         </>
 
     )
