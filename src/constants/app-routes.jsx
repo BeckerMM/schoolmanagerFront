@@ -8,6 +8,12 @@ export const APP_ROUTES = {
             name:'/logged/tests'
     },
     
+        DISCIPLINE:{
+
+            name:'/logged/discipline'
+
+    },
+    
         HOME: {
             name:'/logged/home'
     }

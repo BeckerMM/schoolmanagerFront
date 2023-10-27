@@ -39,6 +39,18 @@ class api {
     }
 
   };
+
+  postDiscipline = async (data) => {
+    try {
+      const response = await axios.post(apiEndpoint + "/discipline", data);
+      return response.data;
+    }
+    catch (error) {
+      console.error('Error posting data:', error);
+      throw error;
+    }
+
+  }
 }
 
 

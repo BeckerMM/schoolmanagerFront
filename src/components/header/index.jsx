@@ -12,10 +12,20 @@ export default () => {
                })}} 
             >Register</h1>
 
-            <h1 className="buttonHeader">Testes</h1>
+            <h1 className="buttonHeader" 
+            onClick={() => {router.push({
+                pathname: "/logged/test",
+            }   )}}
+            >Testes</h1>
             <h1 className="buttonHeader">Gerar Nota</h1>
             <h1 className="buttonHeader">Relatórios</h1>
-            <h1 className="buttonHeader">Registrar disciplina</h1>
+            <h1 className="buttonHeader" onClick={
+                () => {
+                    router.push({
+                        pathname: "/logged/discipline"
+                    })
+                }
+            }>Registrar disciplina</h1>
         </div>
 
     )
