@@ -8,7 +8,7 @@ export default () => {
   const [password, setPassword] = useState('')
   const [address, setAddress] = useState('')
   const [age, setAge] = useState(0)
-  const [userEnum, setUserEnum] = useState('')
+  const [userEnum, setUserEnum] = useState('STUDENT')
   const [user, setUser] = useState('')
   const changeUser = (event) => {
     setUser({ userName, password, address, age, userEnum })
@@ -16,7 +16,7 @@ export default () => {
 
   const post = async () => {
     changeUser()
-    if (userName == '' || password == '' || address == '' || age == 0 || userEnum == '') {
+    if (userName == '' || password == '' || address == '' || age == 0 ) {
       alert('Preencha todos os campos')
     } else { 
     if (user !== '' && user !== null) {
@@ -75,15 +75,13 @@ return (
             type="number" name="age"
             onChange={(e) => { setAge(e.target.value) }} />
         </div>
-        <div className="w-[76%] h-[5%]">
-          <select name="userEnum" id="" className='w-1/4 h-full border border-gray-400 rounded-sm focus:outline-none focus:ring focus:border-blue-300  cursor-pointer'
-            onChange={(e) => setUserEnum(e.target.value)}
-            defaultValue={"PROFESSOR"}>
-            <option value="PROFESSOR">PROFESSOR</option>
-            <option value="SECRETARY">SECRETARY</option>
-            <option value="STUDENT">  STUDENT</option>
-          </select>
-        </div>
+      <div>
+            <select name="classroom" id="">
+              <option value="STUDENT">classroom1 </option>
+
+            </select>
+
+      </div>
         <div className='h-[10%] w-full flex justify-center items-center'>
           <button className="h-5/6 w-1/6 bg-gray-400 hover:bg-gray-300" onClick={post}>Register</button>
         </div>
